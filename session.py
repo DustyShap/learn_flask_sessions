@@ -11,6 +11,9 @@ Session(app)
 
 @app.route('/', methods=['GET','POST'])
 def index():
+    session['name'] = 'Dusty'
+    if session.get('name') == 'Dusty':
+        session['notes'].append('DUSTY IS HERE!')
     if session.get('notes') is None:
         session['notes'] = []
     if request.method == 'POST':
